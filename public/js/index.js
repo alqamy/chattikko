@@ -1,18 +1,20 @@
+var socket;
 (function($) {
-    var socket = io();
-    $body = $('body');
-    $body = $('body');
-    var start = new Date
-    $body = $('body');
+
+    socket = io() //.connect('ws://localhost:8800');
+        // socket.set('transports', ['websocket','xhr-polling']);
+    var start = new Date();
     socket.on('connect', function() {
         var index = socket.io.engine.upgrade ? 1 : 0;
         $('.connecting').html('Connection established in ' + (new Date() - start) + ' msec. ' +
-           '<span class="me">Developed by Badaruddeen Shafi</sapn><span class="info">Enjoy Chatting</span>');
+            '<span class="me">Developed by Badaruddeen Shafi</sapn><span class="info">Enjoy Chatting</span>');
     });
 
     socket.on('message', function(data) {
-        $('ul#messages').append('<li><time data-time="' + (+new Date()) + '"> </time>' + data + '</li>');
-        //scrollBottom();
+        addMessage(data, 2)
+            //scrollBottom();
+        addNotification(data);
+
     });
 
     $('input').keydown(function(e) {
@@ -25,16 +27,73 @@
         submitter();
     });
 
-    function submitter() {
-        var text = $('#text_field').val();
-        if (text.length > 0) {
-            socket.emit('message', text);
-            $('#text_field').val('');
-            $('ul#messages').append('<li> <time data-time="' + (+new Date()) + '"> </time>' + text + '</li>');
-            scrollBottom();
-        }
-    }
+
 }(jQuery));
+
+
+function addNotification(msg) {
+    console.log(window.isActive)
+    if (!window.isActive) {
+        changeFavIcon('new');
+        notify(msg);
+    }
+}
+
+function submitter() {
+    var text = $('#text_field').val();
+
+
+    if (text.length > 0) {
+        socket.emit('message', text);
+        $('#text_field').val('');
+        addMessage(text, 1);
+        scrollBottom();
+    }
+}
+
+
+function addMessage(msg, who) {
+
+   // msg = msg.replace(/\n/g, '<br/>');
+    //msg = jEmoji.unifiedToHTML(msg)
+    var time = '<time data-time="' + (+new Date()) + '"> </time>';
+    var li = '<li class="left" >';
+    if(who == 1) li = '<li class="right" >'
+    $('ul#messages').append(li + time + msg + '</li>');
+}
+
+$(function() {
+    window.isActive = true;
+    $(window).focus(function() {
+        this.isActive = true;
+        changeFavIcon()
+    });
+
+    $(window).blur(function() {
+        this.isActive = false;
+    });
+
+    //showIsActive();
+});
+
+// function showIsActive() {
+//     console.log(window.isActive)
+//     window.setTimeout("showIsActive()", 2000);
+// }
+
+
+function changeFavIcon(condition) {
+
+
+    link = $('link[type="image/x-icon"]')[0];
+
+    if (condition)
+        link.href = '/static/images/favicon1.png';
+    else
+        link.href = '/static/images/favicon2.png';
+
+}
+
 
 function scrollBottom() {
     $("html, body").animate({
@@ -44,17 +103,17 @@ function scrollBottom() {
     checkTime()
 }
 
-function checkTime(){
-  $('time').each(function() {
+function checkTime() {
+    $('time').each(function() {
         var time = $(this).data('time')
         $(this).html(time_ago(time))
     })
 
 }
 
-setInterval(function(){
-  checkTime()
-},6000)
+setInterval(function() {
+    checkTime()
+}, 6000)
 
 function time_ago(time) {
 
@@ -110,4 +169,47 @@ function time_ago(time) {
                 return Math.floor(seconds / format[2]) + ' ' + format[1] + ' ' + token;
         }
     return time;
+}
+
+
+
+function notify(msg) {
+    // Let's check if the browser supports notifications
+    if (!("Notification" in window)) {
+        //console.log("This browser does not support desktop notification");
+    }
+
+    // Let's check if the user is okay to get some notification
+    else if (Notification.permission === "granted") {
+        // If it's okay let's create a notification
+        var notification = new Notification(msg);
+    }
+
+    // Otherwise, we need to ask the user for permission
+    else if (Notification.permission !== 'denied') {
+        Notification.requestPermission(function(permission) {
+            // If the user is okay, let's create a notification
+            if (permission === "granted") {
+                var notification = new Notification(msg);
+            }
+        });
+    }
+
+    // At last, if the user already denied any notification, and you 
+    // want to be respectful there is no need to bother them any more.
+}
+
+
+
+
+
+function addEmoji(msg){
+
+x = {
+    b : new Array("angel","colonthree","confused","cry","devil","frown","gasp","glasses","grin","grumpy","heart","kiki","kiss","pacman","smile","squint","sunglasses","tongue","unsure","upset","wink"), // Emotions Type
+    s : new Array("o:)",":3","o.O",":'(","3:)",":(",":O","8)",":D",">:(","<3","^_^",":*",":v",":)","-_-","8|",":p",":/",">:O",";)"),
+    c : "gif" // Emotions Image format
+    };
+
+    return msg;
 }

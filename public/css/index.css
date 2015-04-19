@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    border:0;
+    border: 0;
 }
 
 body {
@@ -45,28 +45,32 @@ ul#messages {
 ul#messages li {
     padding: 12px;
     margin: 10px 0;
-    background: rgb(96, 9, 247);
     border-radius: 4px;
-    color: #fff;
-    -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.48);
-    -moz-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.48);
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.48);
 }
 
 p {
     text-align: center;
     color: #1FDD46;
 }
-p span{
+
+p span {
     display: block;
     color: #4A4646;
 }
 
+.theme-rainbow ul#messages {
+    -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.48);
+    -moz-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.48);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.48);
+}
 
 .theme-rainbow ul#messages li:nth-child(5n+0) {
     background: rgb(140, 205, 7);
 }
 
+.theme-rainbow ul#messages li:nth-child(5n+0) {
+    background: rgb(140, 205, 7);
+}
 
 .theme-rainbow ul#messages li:nth-child(5n+1) {
     background: rgb(247, 9, 136)
@@ -84,22 +88,30 @@ p span{
     background: rgb(247, 81, 9);
 }
 
-
 time {
     color: #333;
     padding-right: 10px;
 }
 
+.theme-light ul#messages li {
+    background: rgb(216, 243, 255);
+    color: #666;
+}
+
+.theme-light ul#messages li.left{
+    background: #3383dc;
+    color: #fff;
+}
+
+.theme-light ul#messages li.right{
+    background: rgb(193, 199, 193)
+}
 
 
-.theme-light ul#messages li{
-      background: rgb(216, 243, 255);
-      color : #666;
-}
-.theme-light ul#messages li:nth-child(2n+0) {{
-      background: rgb(216, 243, 255)
-}
-.theme-light ul#messages li:nth-child(2n+1) {{
-      background: rgb(193, 199,193)
 
+.container{
+    width: 400px;
+    margin: 0 auto;
+    padding: 8px;
 }
+
