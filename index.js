@@ -37,13 +37,13 @@ var io = require('socket.io')(server);
 
 
 //STORING INTO SOCKET IO
-var redis = require('socket.io-redis');
+// var redis = require('socket.io-redis');
 
-//REDIS ADAPTER
-io.adapter(redis({
-    host: config.redis.host,
-    port: config.redis.port
-}));
+// //REDIS ADAPTER
+// io.adapter(redis({
+//     host: config.redis.host,
+//     port: config.redis.port
+// }));
 
 //BROADCAST HAPPENS HERE
 io.sockets.on('connection', function(socket) {
