@@ -8,19 +8,13 @@ body {
     padding: 50px;
     font-size: 13px;
     font-family: Arial, sans-serif;
-<<<<<<< HEAD
     background: #fefefe;
-=======
->>>>>>> 8473d49791636f6e54164e997b63235fc1f460f7
 }
-
 a {
     color: #00B7FF;
 }
 
-.pallete {
-<<<<<<< HEAD
-  
+.pallete {  
     width: 100%;
     padding: 4px;
     width: 100%;
@@ -43,30 +37,16 @@ input[type="text"] {
 input[type="text"]:focus{
     outline : none;
     border-color: #28CDDE;
-=======
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: rgb(14, 33, 95);
-    padding: 4px;
 }
 
 input[type="text"] {
-    width: 90%;
-    margin: 0 40px;
+    width: 94%;
     padding: 7px;
     font-size: 14px;
     float: left;
 }
 
-input[type="button"] {
-    position: absolute;
-    right: 10px;
-    font-size: 14px;
-    padding: 7px;
->>>>>>> 8473d49791636f6e54164e997b63235fc1f460f7
-}
+
 
 ul#messages {
     list-style-type: none;
@@ -143,7 +123,6 @@ time {
     width: 400px;
     margin: 0 auto;
     padding: 8px;
-<<<<<<< HEAD
     box-shadow: 1px 1px 10px #666; 
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -156,7 +135,3 @@ time {
     font-size: 18px;
     font-weight: bold;
 }
-=======
-}
-
->>>>>>> 8473d49791636f6e54164e997b63235fc1f460f7
