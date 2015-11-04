@@ -1,0 +1,130 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    padding: 50px;
+    font-size: 13px;
+    font-family: Arial, sans-serif;
+    background: #fefefe;
+}
+
+a {
+    color: #00B7FF;
+}
+
+.pallete {
+  
+    width: 100%;
+    padding: 4px;
+    width: 100%;
+    padding-top: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+    border-top: 1px solid #ddd;
+
+}
+
+input[type="text"] {
+    width: 94%;
+    padding: 7px;
+    font-size: 14px;
+    float: left;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+input[type="text"]:focus{
+    outline : none;
+    border-color: #28CDDE;
+}
+
+ul#messages {
+    list-style-type: none;
+}
+
+ul#messages li {
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+p {
+    text-align: center;
+    color: #1FDD46;
+}
+
+p span {
+    display: block;
+    color: #4A4646;
+}
+
+.theme-rainbow ul#messages {
+    -webkit-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.48);
+    -moz-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.48);
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.48);
+}
+
+.theme-rainbow ul#messages li:nth-child(5n+0) {
+    background: rgb(140, 205, 7);
+}
+
+.theme-rainbow ul#messages li:nth-child(5n+0) {
+    background: rgb(140, 205, 7);
+}
+
+.theme-rainbow ul#messages li:nth-child(5n+1) {
+    background: rgb(247, 9, 136)
+}
+
+.theme-rainbow ul#messages li:nth-child(3n+2) {
+    background: rgb(9, 166, 247);
+}
+
+.theme-rainbow ul#messages li:nth-child(5n+3) {
+    background: rgb(9, 247, 111);
+}
+
+.theme-rainbow ul#messages li:nth-child(5n+4) {
+    background: rgb(247, 81, 9);
+}
+
+time {
+    color: #333;
+    padding-right: 10px;
+}
+
+.theme-light ul#messages li {
+    background: rgb(216, 243, 255);
+    color: #666;
+}
+
+.theme-light ul#messages li.left{
+    background: #3383dc;
+    color: #fff;
+}
+
+.theme-light ul#messages li.right{
+    background: rgb(193, 199, 193)
+}
+
+
+
+.container{
+    width: 400px;
+    margin: 0 auto;
+    padding: 8px;
+    box-shadow: 1px 1px 10px #666; 
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.firstMessage{
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
